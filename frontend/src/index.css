@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media screen and (max-width:770px) {
+    .dsp{
+        flex-direction: column;
+    }
+    .dsp2{
+        width: 100%;
+    }
+    .sdf{
+        text-align: center;
+    }
+}
