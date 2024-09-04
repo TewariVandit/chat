@@ -17,9 +17,9 @@ const OtherUser = ({ user }) => {
                         <img src={user?.profilePhoto} alt="user-profile" />
                     </div>
                 </div>
-                <div className='flex flex-col flex-1'>
-                    <div className='flex justify-between gap-2 '>
-                        <p>{user?.fullName}</p>
+                <div className='flex flex-col flex-1 text-black'>
+                    <div className='flex justify-between gap-2 text-black'>
+                        <p className='text-black'>{user?.fullName}</p>
                     </div>
                 </div>
             </div>
