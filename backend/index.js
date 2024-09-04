@@ -19,27 +19,25 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
 
-app.use(express.static(path.join
-    (__dirname, "frontend/build")
-))
-
-app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"))
-})
-
 const corsOption = {
     credentials: true
 };
 app.use(cors(corsOption));
 
-
 // routes
 app.use("/api/v1/user", userRoute);
 app.use("/api/v1/message", messageRoute);
 
+// Serve static files (React app)
+app.use(express.static(path.join(__dirname, "frontend/build")));
 
-server.listen(PORT, () => {
-    connectDB();
-    console.log(`Server listen at prot ${PORT}`);
+// Catch-all for serving React app
+app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
 });
 
+// Start server
+server.listen(PORT, () => {
+    connectDB();
+    console.log(`Server listening at port ${PORT}`);
+});
