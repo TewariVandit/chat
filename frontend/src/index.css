@@ -2,8 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 @media screen and (max-width:770px) {
     .dsp{
+        min-height: 70vh;
         flex-direction: column;
     }
     .dsp2{
